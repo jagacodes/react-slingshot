@@ -7,14 +7,14 @@ jobs:
     
     steps:
       checkout
-      - run: 
+       - run: 
           command: npm i
-      - save_cache:
-          key: "npm-packages"
-          paths:
-            - /src/node_packages
-      - run: 
-          command: npm run lint
+       - save_cache:
+            key: "npm-packages"
+            paths:
+              - /src/node_packages
+        - run: 
+            command: npm run lint
 
   
   test:
