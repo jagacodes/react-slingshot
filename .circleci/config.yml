@@ -6,15 +6,13 @@ jobs:
       - image: circleci/node:13.8.0
     
     steps:
-      checkout
-       - run: 
-          command: npm i
-       - save_cache:
-            key: "npm-packages"
-            paths:
-              - /src/node_packages
-        - run: 
-            command: npm run lint
+      - checkout
+      - run: npm i
+      - save_cache:
+          key: "npm-packages"
+          paths:
+            - /src/node_packages
+      - run: npm run lint
 
   
   test:
@@ -22,14 +20,12 @@ jobs:
       - image: circleci/node:13.8.0
     
     steps:
-      checkout
-      restore_cache:
-        key: 
-          - "npm-packages"
-      - run: 
-          command: npm i
-      - run: 
-          command: npm run test
+      - checkout
+      - restore_cache:
+          key: 
+            - "npm-packages"
+      - run: npm i
+      - run: npm run test
 
 
 
@@ -38,12 +34,11 @@ jobs:
       - image: circleci/node:13.8.0
     
     steps:
-      checkout
-      restore_cache:
-        key: 
-          - "npm-packages"
-      - run: 
-          command: npm audit
+      - checkout
+      - restore_cache:
+          key: 
+            - "npm-packages"
+      - run: npm audit
 
 
 workflows:
