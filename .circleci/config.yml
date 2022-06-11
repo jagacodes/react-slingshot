@@ -7,12 +7,14 @@ jobs:
     
     steps:
       checkout
-      - run: npm i
+      - run: 
+          command: npm i
       - save_cache:
           key: "npm-packages"
           paths:
             - /src/node_packages
-      - run: npm run lint
+      - run: 
+          command: npm run lint
 
   
   test:
@@ -24,8 +26,10 @@ jobs:
       restore_cache:
         key: 
           - "npm-packages"
-      - run: npm i
-      - run: npm run test
+      - run: 
+          command: npm i
+      - run: 
+          command: npm run test
 
 
 
@@ -38,7 +42,8 @@ jobs:
       restore_cache:
         key: 
           - "npm-packages"
-      - run: npm audit
+      - run: 
+          command: npm audit
 
 
 workflows:
