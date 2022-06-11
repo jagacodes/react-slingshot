@@ -7,7 +7,8 @@ jobs:
     
     steps:
       checkout
-      - run: npm run lint
+      - run: 
+          command: npm run lint
 
   
   test:
@@ -16,7 +17,8 @@ jobs:
     
     steps:
       checkout
-      - run: npm run test
+      - run: 
+          command: npm run test
 
 
 
@@ -26,7 +28,8 @@ jobs:
     
     steps:
       checkout
-      - run: npm audit
+      - run: 
+          command: npm audit
 
 
 workflows:
